@@ -1,0 +1,108 @@
+
+// EXERCICIO 1 - APRESENTACAO PESSOAL
+
+
+const input = require('readline-sync');
+
+let nome = input.question("Digite seu nome: ");
+let idade = Number(input.question("Digite sua idade: "));
+let cidade = input.question("Digite sua cidade: ");
+
+console.log(`Ola! Meu nome e ${nome}, tenho ${idade} anos e sou de ${cidade}.`);
+
+
+// EXERCICIO 2 - CALCULADORA SIMPLES
+
+
+let n1 = Number(input.question("Digite o primeiro numero: "));
+let n2 = Number(input.question("Digite o segundo numero: "));
+
+console.log(`Soma: ${n1 + n2}`);
+console.log(`Subtracao: ${n1 - n2}`);
+console.log(`Multiplicacao: ${n1 * n2}`);
+
+if (n2 === 0) {
+    console.log("Erro: divisao por zero.");
+} else {
+    console.log(`Divisao: ${n1 / n2}`);
+}
+
+
+
+// EXERCICIO 3 - MEDIA DE NOTAS
+
+
+let soma = 0;
+
+for (let i = 1; i <= 5; i++) {
+    let nota = Number(input.question(`Digite a nota ${i}: `));
+    soma += nota;
+}
+
+let media = soma / 5;
+
+console.log(`Media final: ${media}`);
+
+if (media >= 7) {
+    console.log("Aprovado");
+} else if (media >= 5) {
+    console.log("Recuperacao");
+} else {
+    console.log("Reprovado");
+}
+
+
+// EXERCICIO 4 - TABUADA
+
+
+let numero = Number(input.question("Digite um numero: "));
+
+for (let i = 1; i <= 10; i++) {
+    console.log(`${numero} x ${i} = ${numero * i}`);
+}
+
+
+
+// EXERCICIO 5 - CONTADOR DE PARES E IMPARES
+
+
+let pares = 0;
+let impares = 0;
+
+for (let i = 1; i <= 10; i++) {
+    let valor = Number(input.question(`Digite o numero ${i}: `));
+
+    if (valor % 2 === 0) {
+        pares++;
+    } else {
+        impares++;
+    }
+}
+
+console.log(`Quantidade de pares: ${pares}`);
+console.log(`Quantidade de impares: ${impares}`);
+
+
+
+// EXERCICIO 6 - ADIVINHE O NUMERO
+
+
+const secreto = 42;
+let tentativas = 0;
+
+while (true) {
+    let palpite = Number(input.question("Digite um numero: "));
+
+    tentativas++;
+
+    if (palpite === secreto) {
+        console.log(`Parabens! Voce acertou em ${tentativas} tentativas.`);
+        break;
+    }
+
+    if (palpite < secreto) {
+        console.log("O numero secreto e maior.");
+    } else {
+        console.log("O numero secreto e menor.");
+    }
+}
